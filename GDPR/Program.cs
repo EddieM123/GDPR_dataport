@@ -63,7 +63,6 @@ namespace GDPR
 
                     sda.Update(data);
 
-
                     StringBuilder sb = new StringBuilder();
 
                     string[] columnNames = data.Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToArray();
@@ -71,15 +70,13 @@ namespace GDPR
 
                     String[] y;
 
-
                     foreach (DataRow row in data.Rows)
                     {
                         y = row.ItemArray.Select(field => field.ToString()).ToArray();
 
                         if (y[2].ToLower().Contains(wrd.ToLower()))
                         {
-                            string[] fields = row.ItemArray.Select(field => field.ToString()).
-                                                       ToArray();
+                            string[] fields = row.ItemArray.Select(field => field.ToString()).ToArray();
                             sb.AppendLine(string.Join(",", fields));
                         }
                     }
@@ -112,9 +109,7 @@ namespace GDPR
                 sda1.Update(data1);
                 StringBuilder sb1 = new StringBuilder();
 
-                string[] columnNames1 = data1.Columns.Cast<DataColumn>().
-                                                  Select(column => column.ColumnName).
-                                                  ToArray();
+                string[] columnNames1 = data1.Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToArray();
                 sb1.AppendLine(string.Join(",", columnNames));
 
                 document.Add(new Paragraph(sb1.ToString()));
