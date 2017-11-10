@@ -45,7 +45,7 @@ namespace GDPR
                 reader.Close();
 
 
-                Console.Write("Unesite hrvatski naziv stranice (name_hr): ");
+                Console.Write("Unesite hrvatski naziv stranice (name_hr), ili ključnu riječ: ");
                 String wrd = Console.ReadLine();
 
                 // ::::::::::::::::::::::::: CSV ::::::::::::::::::::::::::::::::::
