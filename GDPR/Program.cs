@@ -73,7 +73,6 @@ namespace GDPR
                     foreach (DataRow row in data.Rows)
                     {
                         y = row.ItemArray.Select(field => field.ToString()).ToArray();
-
                         if (y[2].ToLower().Contains(wrd.ToLower()))
                         {
                              Console.WriteLine("Pronađena stranica: " + y[2] + "     - " + y[1]);
