@@ -76,6 +76,7 @@ namespace GDPR
 
                         if (y[2].ToLower().Contains(wrd.ToLower()))
                         {
+                             Console.WriteLine("Pronađena stranica: " + y[2] + "     - " + y[1]);
                             string[] fields = row.ItemArray.Select(field => field.ToString()).ToArray();
                             sb.AppendLine(string.Join(",", fields));
                         }
