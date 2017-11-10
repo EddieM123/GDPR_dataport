@@ -34,7 +34,7 @@ namespace GDPR
                 //while (reader.Read())
                 //{
                 //    String x = reader.GetString("name_hr");
-                //    if (x.Contains("ordinacija"))
+                //    if (x.Contains("Ministarstvo"))
                 //    {
                 //        Console.WriteLine(reader.GetString("registrant"));
                 //        Console.WriteLine(reader.GetString("name_en"));
