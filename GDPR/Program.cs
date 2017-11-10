@@ -14,16 +14,10 @@ using iTextSharp.text.html.simpleparser;
 
 namespace GDPR
 {
-   
-
     class Program
     {
-       
-
         static void Main(string[] args)
         {
-
-
             MySqlConnection myConnection = new MySqlConnection();
             myConnection.ConnectionString = "server=localhost;user id=edi;password=password;database=newdb;allowuservariables=True";
             myConnection.Open();
@@ -138,6 +132,7 @@ namespace GDPR
                         {
                             document.Add(new Paragraph(columnNames1[i].ToString() + ":  " + y[i].ToString()));
                         }
+                        document.Add(new Paragraph("  "));
                     }
                 }
 
@@ -145,8 +140,6 @@ namespace GDPR
                 document.Close();
                 writer.Close();
                 fs.Close();
-
-               
 
                 Console.ReadKey();
                 myConnection.Close();
