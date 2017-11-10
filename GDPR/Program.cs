@@ -27,7 +27,6 @@ namespace GDPR
             MySqlConnection myConnection = new MySqlConnection();
             myConnection.ConnectionString = "server=localhost;user id=edi;password=password;database=newdb;allowuservariables=True";
             myConnection.Open();
-            //execute queries, etc
 
 
             if (myConnection is null) myConnection.Close();
@@ -103,8 +102,6 @@ namespace GDPR
                 System.IO.FileStream fs = new FileStream("gdpr.pdf", FileMode.Create);
 
                 Document document = new Document(PageSize.A4, 25, 25, 30, 30);
-                // Create an instance to the PDF file by creating an instance of the PDF 
-                // Writer class using the document and the filestrem in the constructor.
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
                 document.Open();
 
