@@ -14,12 +14,7 @@ using iTextSharp.text.html.simpleparser;
 
 namespace GDPR
 {
-    public class Set
-    {
-
-        public string name_hr { get; set; }
-        public String id { get; set; }
-    }
+   
 
     class Program
     {
@@ -37,8 +32,6 @@ namespace GDPR
 
             if (myConnection is null) myConnection.Close();
             
-
-            List<Set> asd = new List<Set>();
             using (myConnection)
             {
                 String sql = "SELECT * FROM page";
@@ -141,7 +134,6 @@ namespace GDPR
                
                 foreach (DataRow row in data1.Rows)
                 {
-
                     y = row.ItemArray.Select(field => field.ToString()).ToArray();
                     if (y[2].ToLower().Contains(wrd.ToLower()))
                     {
