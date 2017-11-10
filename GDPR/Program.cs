@@ -50,40 +50,40 @@ namespace GDPR
 
                 // ::::::::::::::::::::::::: CSV ::::::::::::::::::::::::::::::::::
                 MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = cmd;
+                sda.SelectCommand = cmd;
 
-                    DataTable data = new DataTable();
-                    sda.Fill(data);
+                DataTable data = new DataTable();
+                sda.Fill(data);
 
-                    BindingSource aSource = new BindingSource();
-                    aSource.DataSource = data;
+                BindingSource aSource = new BindingSource();
+                aSource.DataSource = data;
 
-                    DataGridView dgv = new DataGridView();
-                    dgv.DataSource = aSource;
+                DataGridView dgv = new DataGridView();
+                dgv.DataSource = aSource;
 
-                    sda.Update(data);
+                sda.Update(data);
 
-                    StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
 
-                    string[] columnNames = data.Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToArray();
-                    sb.AppendLine(string.Join(",", columnNames));
+                string[] columnNames = data.Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToArray();
+                sb.AppendLine(string.Join(",", columnNames));
 
-                    String[] y;
+                String[] y;
 
-                    foreach (DataRow row in data.Rows)
+                foreach (DataRow row in data.Rows)
+                {
+                    y = row.ItemArray.Select(field => field.ToString()).ToArray();
+                    if (y[2].ToLower().Contains(wrd.ToLower()))
                     {
-                        y = row.ItemArray.Select(field => field.ToString()).ToArray();
-                        if (y[2].ToLower().Contains(wrd.ToLower()))
-                        {
-                             Console.WriteLine("Pronađena stranica: " + y[2] + "     - " + y[1]);
-                            string[] fields = row.ItemArray.Select(field => field.ToString()).ToArray();
-                            sb.AppendLine(string.Join(",", fields));
-                        }
+                            Console.WriteLine("Pronađena stranica: " + y[2] + "     - " + y[1]);
+                        string[] fields = row.ItemArray.Select(field => field.ToString()).ToArray();
+                        sb.AppendLine(string.Join(",", fields));
                     }
+                }
 
                     
-                    File.WriteAllText("gdpr.csv", sb.ToString());
-                    Console.WriteLine("CSV stvoren.");
+                File.WriteAllText("gdpr.csv", sb.ToString());
+                Console.WriteLine("CSV stvoren.");
 
                 // ::::::::::::::::::::::::::::::::: PDF :::::::::::::::::::::::::::::::::::::::::::
 
