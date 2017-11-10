@@ -66,9 +66,7 @@ namespace GDPR
 
                     StringBuilder sb = new StringBuilder();
 
-                    string[] columnNames = data.Columns.Cast<DataColumn>().
-                                                      Select(column => column.ColumnName).
-                                                      ToArray();
+                    string[] columnNames = data.Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToArray();
                     sb.AppendLine(string.Join(",", columnNames));
 
                     String[] y;
