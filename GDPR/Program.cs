@@ -101,7 +101,7 @@ namespace GDPR
                     }
 
                     
-                    File.WriteAllText("test.csv", sb.ToString());
+                    File.WriteAllText("gdpr.csv", sb.ToString());
                     Console.WriteLine("CSV stvoren.");
 
                 // ::::::::::::::::::::::::::::::::: PDF :::::::::::::::::::::::::::::::::::::::::::
@@ -136,7 +136,7 @@ namespace GDPR
                 sb1.AppendLine(string.Join(",", columnNames));
 
                 document.Add(new Paragraph(sb1.ToString()));
-                document.Add(new Paragraph(" x"));
+                document.Add(new Paragraph(" "));
 
                
                 foreach (DataRow row in data1.Rows)
